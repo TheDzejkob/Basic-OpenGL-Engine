@@ -104,9 +104,14 @@ int main() {
 
     // 3 body ktere maji x,y,z souradnice
     float verticies[] = {
-        -0.5f, -0.5f, 0.0f,
-         0.5f, -0.5f, 0.0f,
-         0.0f,  0.5f, 0.0f
+         0.5f,  0.5f, 0.0f,  // top right
+         0.5f, -0.5f, 0.0f,  // bottom right
+        -0.5f, -0.5f, 0.0f,  // bottom left
+        -0.5f,  0.5f, 0.0f   // top left 
+    };
+    unsigned int indices[] = {  // note that we start from 0!
+        0, 1, 3,   // first triangle
+        1, 2, 3    // second triangle
     };
     //BUFFERY
     unsigned int VAO;
@@ -125,6 +130,10 @@ int main() {
 
     // Unbind VAO (optional, but good practice)
     glBindVertexArray(0);
+
+    //Element buffer
+    unsigned int EBO;
+    glGenBuffers(1, &EBO);
 
     // Main render loop
     while (!glfwWindowShouldClose(window)) {

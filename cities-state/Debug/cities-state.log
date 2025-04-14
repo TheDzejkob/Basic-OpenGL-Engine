@@ -1,3 +1,2 @@
 ﻿  Application.cpp
-LINK : warning LNK4098: Výchozí knihovna MSVCRT je v konfliktu s použitím jiných knihoven. Použijte /NODEFAULTLIB:library.
   cities-state.vcxproj -> C:\Users\axolo\Desktop\Projects\cities-state\Debug\cities-state.exe
