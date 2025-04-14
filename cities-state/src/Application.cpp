@@ -108,13 +108,23 @@ int main() {
          0.5f, -0.5f, 0.0f,
          0.0f,  0.5f, 0.0f
     };
+    //BUFFERY
+    unsigned int VAO;
+    glGenVertexArrays(1, &VAO);
+    glBindVertexArray(VAO);
 
+    // Generate and bind VBO
     unsigned int VBO;
-    glGenBuffers(1, &VBO); // Vytvoreni bufferu
+    glGenBuffers(1, &VBO);
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(verticies), verticies, GL_STATIC_DRAW);
 
-    glBindBuffer(GL_ARRAY_BUFFER, VBO); // Bindne buffer jako array pro vertex data
+    // Configure vertex attributes
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+    glEnableVertexAttribArray(0);
 
-    glBufferData(GL_ARRAY_BUFFER, sizeof(verticies), verticies, GL_STATIC_DRAW); // Naplní buffer Verticies Daty
+    // Unbind VAO (optional, but good practice)
+    glBindVertexArray(0);
 
     // Main render loop
     while (!glfwWindowShouldClose(window)) {
@@ -124,12 +134,39 @@ int main() {
         glClearColor(39.0f / 255.0f, 157.0f / 255.0f, 245.0f / 255.0f, 0.8f);
         glClear(GL_COLOR_BUFFER_BIT);
 
-        // Draw your objects here
+        // Use the shader program and bind the VAO
+        glUseProgram(shaderProgram);
+        glBindVertexArray(VAO);
+        glDrawArrays(GL_TRIANGLES, 0, 3);
 
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
 
+
+
+    //Bindne VBO
+    //// 0. copy our vertices array in a buffer for OpenGL to use
+    //glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    //glBufferData(GL_ARRAY_BUFFER, sizeof(verticies), verticies, GL_STATIC_DRAW);
+    //// jakej vertex configurovat/size vertexu/ typ dat/ normalizovat ano ne/ misto mezi vertexema/ pozice v bufferu
+    //glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+    //glEnableVertexAttribArray(0);
+
+   
+    //Bindne VAO
+    //glBindVertexArray(VAO);
+    //glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    //glBufferData(GL_ARRAY_BUFFER, sizeof(verticies), verticies, GL_STATIC_DRAW);
+    //glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+    //glEnableVertexAttribArray(0);
+
+    //drawing objektu 
+
+    
+    //uklid
+    glDeleteVertexArrays(1, &VAO);
+    glDeleteBuffers(1, &VBO);
     // Freene vsecky resources
     glfwTerminate();
     return 0;
