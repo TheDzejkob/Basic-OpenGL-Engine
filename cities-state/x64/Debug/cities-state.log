@@ -1,0 +1,13 @@
+﻿Application.obj : error LNK2019: Nerozpoznaný externí symbol glfwInit odkazovaný ve funkci main
+Application.obj : error LNK2019: Nerozpoznaný externí symbol glfwTerminate odkazovaný ve funkci main
+Application.obj : error LNK2019: Nerozpoznaný externí symbol glfwWindowHint odkazovaný ve funkci main
+Application.obj : error LNK2019: Nerozpoznaný externí symbol glfwCreateWindow odkazovaný ve funkci main
+Application.obj : error LNK2019: Nerozpoznaný externí symbol glfwWindowShouldClose odkazovaný ve funkci main
+Application.obj : error LNK2019: Nerozpoznaný externí symbol glfwSetWindowShouldClose odkazovaný ve funkci "void __cdecl processInput(struct GLFWwindow *)" (?processInput@@YAXPEAUGLFWwindow@@@Z)
+Application.obj : error LNK2019: Nerozpoznaný externí symbol glfwPollEvents odkazovaný ve funkci main
+Application.obj : error LNK2019: Nerozpoznaný externí symbol glfwGetKey odkazovaný ve funkci "void __cdecl processInput(struct GLFWwindow *)" (?processInput@@YAXPEAUGLFWwindow@@@Z)
+Application.obj : error LNK2019: Nerozpoznaný externí symbol glfwMakeContextCurrent odkazovaný ve funkci main
+Application.obj : error LNK2019: Nerozpoznaný externí symbol glfwSwapBuffers odkazovaný ve funkci main
+Application.obj : error LNK2019: Nerozpoznaný externí symbol glfwGetProcAddress odkazovaný ve funkci main
+C:\Users\axolo\Desktop\Projects\cities-state\Dependencies\GLFW\lib-vc2022\glfw3.lib : warning LNK4272: Typ počítače knihovny x86 koliduje s typem cílového počítače x64.
+C:\Users\axolo\Desktop\Projects\cities-state\x64\Debug\cities-state.exe : fatal error LNK1120: Počet nerozpoznaných externích typů: 11
